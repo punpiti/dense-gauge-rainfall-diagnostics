@@ -4,6 +4,15 @@
 [![Release](https://img.shields.io/badge/release-v1.0.0-19734a)](https://github.com/punpiti/egusphere-2026-1314-processing-code/releases/tag/v1.0.0)
 [![License: MIT](https://img.shields.io/badge/license-MIT-df930b.svg)](LICENSE)
 
+## Accompanying paper
+
+Piamsa-nga, P., Phisanbut, N., and Piamsa-nga, N. (2026), “A dense
+rain-gauge observation framework for advection-consistency diagnosis of urban
+convective rainfall,” *EGUsphere* [preprint].
+
+- [Official article and public-discussion page](https://egusphere.copernicus.org/preprints/2026/egusphere-2026-1314/)
+- [https://doi.org/10.5194/egusphere-2026-1314](https://doi.org/10.5194/egusphere-2026-1314)
+
 For a one-page visual guide to the demonstration and its outputs, open
 [`index.html`](index.html) in a browser. The same file can serve as the project
 landing page when this package is published from a GitHub repository.
