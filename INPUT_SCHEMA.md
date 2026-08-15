@@ -33,7 +33,8 @@ See `example/station_metadata_format.csv` for a minimal template.
 
 `--boundary` accepts a WGS84 GeoJSON Polygon or MultiPolygon. If the file is
 absent, the script derives a rectangular domain from station extent and adds
-the requested padding.
+the requested padding. It is therefore not a required scientific input to
+`example/run_pipeline.sh`.
 
 ## Storm-metric table
 

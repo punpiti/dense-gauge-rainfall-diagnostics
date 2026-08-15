@@ -50,9 +50,10 @@ def main() -> None:
                 }
             )
 
-    pd.DataFrame(rows).to_parquet(out / "event_window.parquet", index=False)
+    pd.DataFrame(rows).to_parquet(out / "rainfall.parquet", index=False)
 
-    print(f"Synthetic inputs written to {out}")
+    print(f"  station metadata      : {out / 'stations.csv'}")
+    print(f"  rainfall observations : {out / 'rainfall.parquet'}")
 
 
 if __name__ == "__main__":

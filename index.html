@@ -107,10 +107,11 @@
     <div class="wrap">
       <p class="kicker">EGUsphere 2026-1314 · reproducibility companion</p>
       <h1>Run the rainfall-processing demo</h1>
-      <p class="lead">A one-command synthetic example of the released paper-processing path: measured station rainfall format, gridded reconstruction, optical flow, advection residuals, event metrics, and the final operational label.</p>
+      <p class="lead">Two input files, one processing path, and explicit outputs: measured station rainfall, gridded reconstruction, optical flow, advection residuals, event metrics, and the final operational label.</p>
       <div class="badges" aria-label="Demo properties">
         <span class="badge">Command line</span>
-        <span class="badge">7 visible stages</span>
+        <span class="badge">2 required input files</span>
+        <span class="badge">6 visible processing stages</span>
         <span class="badge">Synthetic data only</span>
         <span class="badge">No restricted BMA observations</span>
       </div>
@@ -143,7 +144,7 @@ bash example/run_demo.sh</code></pre>
         </div>
         <aside class="note">
           <strong>What to expect</strong>
-          <p>The terminal reports <code>[1/7]</code> through <code>[7/7]</code>. Gridding and optical-flow steps show progress bars. A successful run ends with the final label <code>convective</code> and writes a PNG summary plus CSV/Parquet results.</p>
+          <p>The demo first creates exactly two synthetic inputs, then the shared pipeline reports <code>[1/6]</code> through <code>[6/6]</code>. Gridding and optical-flow steps show progress bars. A successful run ends with the final label <code>convective</code>.</p>
           <p>The checked environment is documented in <a href="ENVIRONMENT_CHECKED.txt">ENVIRONMENT_CHECKED.txt</a>.</p>
         </aside>
       </div>
@@ -151,14 +152,14 @@ bash example/run_demo.sh</code></pre>
 
     <section class="panel" id="pipeline">
       <h2>What the command runs</h2>
-      <p>The synthetic generator only supplies unrestricted input. The scientific stages call the released paper-processing source files.</p>
+      <p>The synthetic generator only supplies unrestricted versions of the two required inputs. The same pipeline hook can receive a measured event without changing the scientific processing scripts.</p>
       <div class="pipeline" aria-label="Processing pipeline">
-        <div class="stage"><strong>Synthetic stations</strong><span>15 frames from 36 stations in the documented rainfall schema.</span></div>
+        <div class="stage"><strong>Two inputs</strong><span>Rainfall observations plus station locations.</span></div>
         <div class="stage"><strong>Rainfall grid</strong><span>Normalized Gaussian reconstruction on a 1 km grid.</span></div>
-        <div class="stage"><strong>Optical flow</strong><span>Farneback displacement and the advection-only reference.</span></div>
-        <div class="stage"><strong>Residuals</strong><span>Observed next field minus the advected reference field.</span></div>
-        <div class="stage"><strong>Event metrics</strong><span>Positive-residual area, sums, and strong-frame count.</span></div>
+        <div class="stage"><strong>Flow + reference</strong><span>Farneback displacement and advection-only rainfall.</span></div>
+        <div class="stage"><strong>Residual metrics</strong><span>Observed-minus-advected fields, areas, sums, and frames.</span></div>
         <div class="stage"><strong>Final rule</strong><span>Paper thresholds applied in strict mode.</span></div>
+        <div class="stage"><strong>Explicit outputs</strong><span>Final-label CSV, visual PNG, and inspectable intermediates.</span></div>
       </div>
     </section>
 
@@ -181,8 +182,8 @@ bash example/run_demo.sh</code></pre>
     <section class="panel" id="inputs-outputs">
       <div class="two-col">
         <div>
-          <h2>Input format</h2>
-          <p>The demo creates a Parquet event-window table in the same processing-input schema consumed by the gridding script.</p>
+          <h2>Exactly two required inputs</h2>
+          <p><strong>1. Rainfall observations:</strong> one post-QA/QC event-window table in Parquet, using these columns:</p>
           <table>
             <thead><tr><th>Column</th><th>Meaning</th></tr></thead>
             <tbody>
@@ -192,17 +193,27 @@ bash example/run_demo.sh</code></pre>
               <tr><td><code>rainfall_flag</code></td><td>Optional quality flag.</td></tr>
             </tbody>
           </table>
-          <p>Station metadata use <code>id</code>, <code>nameShort</code>, <code>lat</code>, and <code>lon</code>. See <a href="INPUT_SCHEMA.md">INPUT_SCHEMA.md</a> and the human-readable templates under <code>example/</code>.</p>
+          <p><strong>2. Station metadata:</strong> one CSV using <code>id</code>, <code>nameShort</code>, <code>lat</code>, and <code>lon</code>. See <a href="INPUT_SCHEMA.md">INPUT_SCHEMA.md</a> and the human-readable templates under <code>example/</code>.</p>
+          <div class="command">
+            <div class="command-label"><span>Hook in one measured event</span><button class="copy" type="button" data-copy="measured-command">Copy</button></div>
+            <pre id="measured-command"><code>bash example/run_pipeline.sh \
+  --rainfall /path/to/rainfall.parquet \
+  --stations /path/to/stations.csv \
+  --output-dir results/my_event \
+  --event-id MY_EVENT</code></pre>
+          </div>
         </div>
         <div>
-          <h2>Outputs</h2>
-          <p>Generated files are written beneath <code>example/demo_output/</code>:</p>
+          <h2>What comes out</h2>
+          <p><strong>Main machine-readable result:</strong></p>
+          <p><code>final_label/all_storm_results_labeled.csv</code> — one event row containing the four final-rule metrics, rule reason, and <code>convective</code>/<code>non-convective</code> label.</p>
+          <p><strong>Main human-readable result:</strong></p>
+          <p><code>summary.png</code> — observed and advected rainfall, signed residual, threshold ratios, and final label.</p>
+          <p><strong>Inspectable intermediate outputs:</strong></p>
           <ul class="file-list">
-            <li><code>demo_summary.png</code> — visual overview.</li>
             <li><code>event_grid.nc</code> — reconstructed rainfall field.</li>
             <li><code>flow_residual.nc</code> — flow, advection, and residual arrays.</li>
             <li><code>frame_metrics.csv</code> — frame-level metrics.</li>
-            <li><code>final_label/all_storm_results_labeled.csv</code> — final result.</li>
           </ul>
         </div>
       </div>
@@ -210,7 +221,7 @@ bash example/run_demo.sh</code></pre>
 
     <section class="panel scope" id="scope">
       <h2>Reproducibility boundary</h2>
-      <p>This is a focused release of code directly connected to the paper. It excludes raw-data acquisition, restricted BMA observations and event tables, internal cache contents, batch/performance orchestration, machine-specific paths, logs, and unrelated project code.</p>
+      <p>This is a focused release of code directly connected to the paper. The generic <code>run_pipeline.sh</code> hook only connects the two input files and stage outputs; all numerical work is performed by the released paper-processing scripts. It excludes raw-data acquisition, restricted BMA observations and event tables, internal cache contents, batch/performance orchestration, machine-specific paths, logs, and unrelated project code.</p>
       <p>The package supports inspection and execution of the method-specific processing path. Exact regeneration of the Bangkok results additionally requires observations and event-window definitions that cannot be redistributed. Full details are in <a href="README.md">README.md</a> and <a href="SOURCE_PROVENANCE.md">SOURCE_PROVENANCE.md</a>.</p>
     </section>
   </main>

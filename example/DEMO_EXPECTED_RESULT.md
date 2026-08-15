@@ -1,7 +1,8 @@
 # Checked demo result
 
 The one-command demonstration was executed in the environment recorded in
-`../ENVIRONMENT_CHECKED.txt`. It produced:
+`../ENVIRONMENT_CHECKED.txt`. The main machine-readable output is
+`demo_output/final_label/all_storm_results_labeled.csv`; it produced:
 
 | Field | Checked value |
 |---|---:|
@@ -16,3 +17,6 @@ OpenCV versions, but the supplied synthetic event is designed to pass the
 documented operational rule. These are demonstration values, not results from
 BMA observations and not evidence about classification performance.
 
+The human-readable visual output is `demo_output/summary.png`. Intermediate
+NetCDF and CSV files are retained under `demo_output/` so each processing stage
+can be inspected.

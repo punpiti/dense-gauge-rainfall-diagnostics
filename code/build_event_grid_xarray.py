@@ -370,7 +370,7 @@ def main():
         bounds_wgs84 = infer_bounds_wgs84_from_stations(st)
         boundary_gj = None
         boundary_source = ""
-        print(f"[WARN] boundary file not found: {boundary_path} ; deriving bounds from station extent")
+        print(f"[INFO] optional boundary not found: {boundary_path} ; deriving bounds from station extent")
 
     # Grid edges and centers (UTM meters)
     cell_m = float(args.grid_km) * 1000.0

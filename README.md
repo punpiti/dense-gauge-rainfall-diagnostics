@@ -52,13 +52,17 @@ convective and 121 non-convective operational labels.
 
 ## Inputs
 
-The source release does not contain BMA observations. Required schemas are
-documented in `INPUT_SCHEMA.md`. Human-readable templates are supplied as
+The runnable event pipeline requires exactly two scientific input files:
+
+1. a post-QA/QC event-window rainfall table in Parquet; and
+2. a station-metadata table in CSV.
+
+The source release does not contain BMA observations. Required columns are
+documented in `INPUT_SCHEMA.md`; human-readable templates are supplied as
 `example/measured_rainfall_format.csv` and
-`example/station_metadata_format.csv`. The synthetic generator writes the same
-rainfall table to Parquet, which is the format consumed by the gridding script.
-This is the event-window processing-input format after the study's documented
-QA/QC and event selection; it is not the provider's original raw-export format.
+`example/station_metadata_format.csv`. This is the event-window
+processing-input format after the study's documented QA/QC and event selection;
+it is not the provider's original raw-export format.
 
 ## Environment
 
@@ -81,15 +85,32 @@ PYTHON_BIN=/path/to/python bash example/run_demo.sh
 ```
 
 The demonstration creates a 15-frame, 36-station synthetic rainfall event in
-the documented measured-rainfall format and then runs the released gridding,
-optical-flow, residual, metric-extraction, and final-label stages. The final
-result is printed on screen and saved under
-`example/demo_output/final_label/`. The expected operational label is
+the two documented input files and then calls `example/run_pipeline.sh`, which
+runs the released gridding, optical-flow, residual, metric-extraction, and
+final-label stages. The main final result is printed on screen and saved as
+`example/demo_output/final_label/all_storm_results_labeled.csv`. The expected operational label is
 `convective`; the checked metrics are recorded in
 `example/DEMO_EXPECTED_RESULT.md`. The command also creates
-`example/demo_output/demo_summary.png`, showing the final observed rainfall,
+`example/demo_output/summary.png`, showing the final observed rainfall,
 advection-only reference, signed residual, threshold ratios, and final label.
 A checked preview is included as `example/DEMO_EXPECTED_VISUAL.png`.
+
+## Hook in one measured event
+
+Use the same pipeline wrapper with your own two input files:
+
+```bash
+bash example/run_pipeline.sh \
+  --rainfall /path/to/rainfall.parquet \
+  --stations /path/to/stations.csv \
+  --output-dir results/my_event \
+  --event-id MY_EVENT
+```
+
+An optional `--boundary boundary.geojson` may be supplied; otherwise the domain
+is derived from station extent. `run_pipeline.sh` only passes paths and the
+manuscript parameters to the released paper scripts. It does not reimplement
+the gridding, optical flow, residual metrics, or final rule.
 
 `example/prepare_final_rule_input.py` is a transparent column-name adapter
 between the metric-extraction output and the final threshold script; it does

@@ -29,3 +29,11 @@ filesystem variability in small review environments.
 
 Progress reporting was added to the public demo and to the optical-flow loop.
 These changes affect console feedback only and do not change numerical output.
+
+`example/run_pipeline.sh` is a thin command-line hook around the released
+paper-processing scripts. Its only required scientific inputs are one rainfall
+event-window table and one station-metadata table. It supplies the manuscript
+parameters, connects file outputs between stages, and reports their locations;
+it performs no scientific calculation. `example/run_demo.sh` differs only by
+creating unrestricted synthetic versions of those two inputs before calling
+the same hook.
