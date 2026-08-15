@@ -1,0 +1,9 @@
+Python 3.13.9
+numpy 2.3.4
+pandas 2.3.3
+xarray 2025.12.0
+zarr 3.1.5
+opencv 4.12.0
+pyproj 3.7.2
+matplotlib 3.10.7
+

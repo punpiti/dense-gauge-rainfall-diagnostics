@@ -1,0 +1,11 @@
+numpy
+pandas
+pyarrow
+pyproj
+xarray
+zarr
+tqdm
+opencv-python
+matplotlib
+netCDF4
+
