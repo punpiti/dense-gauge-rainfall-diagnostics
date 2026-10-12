@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Runnable synthetic demonstration for the paper-processing code accompanying egusphere-2026-1314.">
-  <title>EGUsphere 2026-1314 — Processing-code demo</title>
+  <meta name="description" content="Dense-gauge rainfall diagnostics: reproducible processing code and a runnable synthetic demonstration of rainfall reconstruction, optical flow and advection residuals.">
+  <title>Dense-gauge rainfall diagnostics — Processing-code demo</title>
   <style>
     :root {
       color-scheme: light;
@@ -105,7 +105,7 @@
 <body>
   <header class="hero">
     <div class="wrap">
-      <p class="kicker">EGUsphere 2026-1314 · reproducibility companion</p>
+      <p class="kicker">Dense-gauge rainfall diagnostics · reproducible processing</p>
       <h1>Run the rainfall-processing demo</h1>
       <p class="lead">Two input files, one processing path, and explicit outputs: measured station rainfall, gridded reconstruction, optical flow, advection residuals, event metrics, and the final operational label.</p>
       <div class="badges" aria-label="Demo properties">
@@ -116,8 +116,8 @@
         <span class="badge">No restricted BMA observations</span>
       </div>
       <div class="hero-actions">
-        <a class="hero-button" href="https://github.com/punpiti/egusphere-2026-1314-processing-code">View repository</a>
-        <a class="hero-button secondary" href="https://egusphere.copernicus.org/preprints/2026/egusphere-2026-1314/">View paper</a>
+        <a class="hero-button" href="https://github.com/punpiti/dense-gauge-rainfall-diagnostics">View repository</a>
+        <a class="hero-button secondary" href="#paper">Research provenance</a>
         <a class="hero-button secondary" href="#quick-start">Clone and run</a>
       </div>
     </div>
@@ -131,8 +131,8 @@
           <p>Clone the public repository, enter its directory, install the Python packages once, and run the demo.</p>
           <div class="command">
             <div class="command-label"><span>Terminal · complete quick start</span><button class="copy" type="button" data-copy="install-command">Copy</button></div>
-            <pre id="install-command"><code>git clone https://github.com/punpiti/egusphere-2026-1314-processing-code.git
-cd egusphere-2026-1314-processing-code
+            <pre id="install-command"><code>git clone https://github.com/punpiti/dense-gauge-rainfall-diagnostics.git
+cd dense-gauge-rainfall-diagnostics
 python -m pip install -r requirements.txt
 bash example/run_demo.sh</code></pre>
           </div>
@@ -152,10 +152,10 @@ bash example/run_demo.sh</code></pre>
     </section>
 
     <section class="panel" id="paper">
-      <p class="kicker" style="color: var(--blue-dark)">Accompanying paper</p>
+      <p class="kicker" style="color: var(--blue-dark)">Earlier preprint and research provenance</p>
       <h2>A dense rain-gauge observation framework for advection-consistency diagnosis of urban convective rainfall</h2>
       <p>Punpiti Piamsa-nga, Nalina Phisanbut, and Napaporn Piamsa-nga · EGUsphere preprint · 2026</p>
-      <p>This repository is the focused processing-code companion to the manuscript. Read the article, public discussion, and current publication status on the <a href="https://egusphere.copernicus.org/preprints/2026/egusphere-2026-1314/"><strong>official EGUsphere page</strong></a>, or use the persistent identifier <a href="https://doi.org/10.5194/egusphere-2026-1314">doi:10.5194/egusphere-2026-1314</a>.</p>
+      <p>The code was initially released with this preprint. The repository now uses a journal-neutral name, while the <a href="https://egusphere.copernicus.org/preprints/2026/egusphere-2026-1314/"><strong>earlier preprint and public discussion</strong></a> remain available through the persistent identifier <a href="https://doi.org/10.5194/egusphere-2026-1314">doi:10.5194/egusphere-2026-1314</a>. Release v1.0.0 preserves the original numerical implementation.</p>
     </section>
 
     <section class="panel" id="pipeline">
@@ -235,7 +235,7 @@ bash example/run_demo.sh</code></pre>
   </main>
 
   <footer>
-    <p><strong>egusphere-2026-1314</strong> · Paper-processing code demonstration · Synthetic input only</p>
+    <p><strong>Dense-gauge rainfall diagnostics</strong> · Processing-code demonstration · Synthetic input only</p>
   </footer>
 
   <script>

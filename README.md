@@ -1,10 +1,16 @@
-# Paper processing code
+# Dense-gauge rainfall diagnostics
 
-[![Demo guide](https://img.shields.io/badge/demo-GitHub%20Pages-006eb7)](https://punpiti.github.io/egusphere-2026-1314-processing-code/)
-[![Release](https://img.shields.io/badge/release-v1.0.0-19734a)](https://github.com/punpiti/egusphere-2026-1314-processing-code/releases/tag/v1.0.0)
+[![Demo guide](https://img.shields.io/badge/demo-GitHub%20Pages-006eb7)](https://punpiti.github.io/dense-gauge-rainfall-diagnostics/)
+[![Release](https://img.shields.io/badge/release-v1.0.0-19734a)](https://github.com/punpiti/dense-gauge-rainfall-diagnostics/releases/tag/v1.0.0)
 [![License: MIT](https://img.shields.io/badge/license-MIT-df930b.svg)](LICENSE)
 
-## Accompanying paper
+Transport-relative analysis of rainfall development from dense rain-gauge
+networks, with reproducible processing scripts and a synthetic demonstration.
+
+## Related research and provenance
+
+The processing code was initially released with the following preprint. Its
+persistent identifier records the earlier work; the software uses a journal-neutral name.
 
 Piamsa-nga, P., Phisanbut, N., and Piamsa-nga, N. (2026), “A dense
 rain-gauge observation framework for advection-consistency diagnosis of urban
@@ -20,15 +26,15 @@ landing page when this package is published from a GitHub repository.
 After publication, the complete command-line quick start is:
 
 ```bash
-git clone https://github.com/punpiti/egusphere-2026-1314-processing-code.git
-cd egusphere-2026-1314-processing-code
+git clone https://github.com/punpiti/dense-gauge-rainfall-diagnostics.git
+cd dense-gauge-rainfall-diagnostics
 python -m pip install -r requirements.txt
 bash example/run_demo.sh
 ```
 
 This supplement contains the Python processing scripts used for the
-paper-specific rainfall-field, optical-flow, residual-metric, and final
-threshold-labeling stages of egusphere-2026-1314.
+rainfall-field, optical-flow, residual-metric, and operational threshold-labeling
+stages. Release v1.0.0 preserves the original numerical implementation.
 
 It is a focused source release, not a copy of the authors' internal workspace.
 It intentionally excludes raw-data acquisition, event-cache contents, batch

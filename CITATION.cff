@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the accompanying manuscript and this software release."
-title: "Paper-processing code for advection-consistency diagnosis of urban convective rainfall"
+title: "Dense-gauge rainfall diagnostics"
 type: software
 version: 1.0.0
 date-released: "2026-08-15"
@@ -12,9 +12,9 @@ authors:
     given-names: Nalina
   - family-names: Piamsa-nga
     given-names: Napaporn
-repository-code: "https://github.com/punpiti/egusphere-2026-1314-processing-code"
-url: "https://punpiti.github.io/egusphere-2026-1314-processing-code/"
+repository-code: "https://github.com/punpiti/dense-gauge-rainfall-diagnostics"
+url: "https://punpiti.github.io/dense-gauge-rainfall-diagnostics/"
 abstract: >-
   Focused Python source release and unrestricted synthetic demonstration for
   the rainfall gridding, optical-flow, advection-residual, event-metric, and
-  final operational labeling stages accompanying egusphere-2026-1314.
+  final operational labeling stages for transport-relative rainfall diagnostics.
