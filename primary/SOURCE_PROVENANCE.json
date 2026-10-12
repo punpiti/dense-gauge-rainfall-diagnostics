@@ -1,0 +1,51 @@
+[
+  {
+    "packaged_file": "processing/build_event_grid_xarray.py",
+    "original_source": "internal/code/build_event_grid_xarray.py",
+    "source_sha256": "dfaa8df316bdc62c9566b66265ba5956000118834508f5693f26b0e1dc12d976",
+    "packaged_sha256": "dfaa8df316bdc62c9566b66265ba5956000118834508f5693f26b0e1dc12d976",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "processing/compute_optical_flow_xarray.py",
+    "original_source": "internal/code/compute_optical_flow_xarray.py",
+    "source_sha256": "93ff72af652ecea57840112aabd3b17c8e6dfc90017d1e0a9d15d8e7c138591c",
+    "packaged_sha256": "93ff72af652ecea57840112aabd3b17c8e6dfc90017d1e0a9d15d8e7c138591c",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "processing/cluster_station_events_to_storms.py",
+    "original_source": "cluster_station_events_to_storms.py",
+    "source_sha256": "3a46078bb4fe9570bd13ba5f532166de824be51fe1bc02a6a39439a86fb2dbf7",
+    "packaged_sha256": "3a46078bb4fe9570bd13ba5f532166de824be51fe1bc02a6a39439a86fb2dbf7",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "analysis/no_advection_ablation.py",
+    "original_source": "internal/analysis/no_advection_ablation.py",
+    "source_sha256": "88c48e5a10b66a2b3c993ba0234da678e82b05de6a2b7823e6c5898b36d8eee4",
+    "packaged_sha256": "deb27e829eee78a7fd7eba307255de4bc585c0075778e206b34c47b261749128",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "analysis/flow_scaling_check.py",
+    "original_source": "internal/analysis/flow_scaling_check.py",
+    "source_sha256": "2f650cd3a4cdfedad11bf9c0cc21d7b7c3718ed168f15f0df2039e0ca39bdc7f",
+    "packaged_sha256": "12a2329ce0a09e4e70f3b8d13143b41f480497d3f85fe00056a6de0f6d6c083d",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "analysis/density_motion_check.py",
+    "original_source": "internal/analysis/density_motion_check.py",
+    "source_sha256": "ef79e69a062dd7ae268b9b4601ad009435e4acd455cc0add119af718db8bde4c",
+    "packaged_sha256": "f0bb69099848972cffa9cfe515dc2721413823a0338b54cfbadd1b77e9850d34",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "analysis/audit_no_fill_event_linkage.py",
+    "original_source": "amt/revision_docs/major_revision_20260911/audit_no_fill_event_linkage.py",
+    "source_sha256": "0b3686f221a0162748b398f64ea84447a7b991d3d75313486efa9ab60d97e0af",
+    "packaged_sha256": "0b3686f221a0162748b398f64ea84447a7b991d3d75313486efa9ab60d97e0af",
+    "adaptation": "local import/data defaults only; numerical functions unchanged"
+  }
+]

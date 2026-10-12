@@ -1,0 +1,13 @@
+# Execution versions used for the revised numerical workflow, not minimum requirements.
+numpy==2.3.4
+pandas==2.3.3
+scipy==1.16.2
+opencv-python==4.12.0.88
+numcodecs==0.16.5
+xarray==2025.12.0
+matplotlib
+pyproj
+shapely
+tqdm
+pyarrow
+zarr

@@ -1,11 +1,41 @@
 # Dense-gauge rainfall diagnostics
 
 [![Demo guide](https://img.shields.io/badge/demo-GitHub%20Pages-006eb7)](https://punpiti.github.io/dense-gauge-rainfall-diagnostics/)
-[![Release](https://img.shields.io/badge/release-v1.0.0-19734a)](https://github.com/punpiti/dense-gauge-rainfall-diagnostics/releases/tag/v1.0.0)
+[![Release](https://img.shields.io/badge/release-v1.1.0-19734a)](https://github.com/punpiti/dense-gauge-rainfall-diagnostics/releases/tag/v1.1.0)
 [![License: MIT](https://img.shields.io/badge/license-MIT-df930b.svg)](LICENSE)
 
 Transport-relative analysis of rainfall development from dense rain-gauge
 networks, with reproducible processing scripts and a synthetic demonstration.
+
+## Current manuscript: pair-max, v1.1.0
+
+Use [`primary/run_primary.py`](primary/run_primary.py) for the revised
+Atmospheric Research manuscript. It calculates pair-max indicators and labels,
+fixed15/no-advection comparisons, and the fixed-window finite-fill control
+(including filled zeros). The unchanged Boolean rule gives 36 high-residual
+and 121 other windows in the retained 157-storm analysis. These are operational
+diagnostic groups, not independently validated convective labels.
+
+```bash
+git clone --branch v1.1.0 https://github.com/punpiti/dense-gauge-rainfall-diagnostics.git
+cd dense-gauge-rainfall-diagnostics
+python -m pip install -r primary/requirements.txt
+python primary/demo.py
+python primary/run_primary.py --products /path/to/products --workers 8 --output /path/to/results
+```
+
+The demo uses unrestricted synthetic inputs only. Bangkok execution requires
+permission to use BMA observations and retained products/metadata, which are
+not distributed. See [`primary/README.md`](primary/README.md) for input schemas,
+no-fill, scaling-recovery, local-support and event-linkage control commands.
+All indicators use complete retained analysis windows, including available
+pre-storm lead-ins; linked storm duration is separate.
+
+This repository is the sole public code location; there is no separate code
+supplement. The new directory contains calculation code and essential usage
+documentation only: no manuscript, restricted inputs, figure/layout scripts,
+internal review records, or experimental prototypes. Release v1.0.0 is kept
+unchanged as historical fixed15 provenance.
 
 ## Related research and provenance
 
@@ -19,7 +49,12 @@ convective rainfall,” *EGUsphere* [preprint].
 - [Official article and public-discussion page](https://egusphere.copernicus.org/preprints/2026/egusphere-2026-1314/)
 - [https://doi.org/10.5194/egusphere-2026-1314](https://doi.org/10.5194/egusphere-2026-1314)
 
-For a one-page visual guide to the demonstration and its outputs, open
+## Historical fixed15 interface
+
+The following commands and visual guide use the original fixed15 workflow,
+not the current pair-max primary analysis.
+
+For a one-page visual guide to the historical demonstration and its outputs, open
 [`index.html`](index.html) in a browser. The same file can serve as the project
 landing page when this package is published from a GitHub repository.
 
@@ -32,7 +67,7 @@ python -m pip install -r requirements.txt
 bash example/run_demo.sh
 ```
 
-This supplement contains the Python processing scripts used for the
+The historical interface contains the Python processing scripts used for the
 rainfall-field, optical-flow, residual-metric, and operational threshold-labeling
 stages. Release v1.0.0 preserves the original numerical implementation.
 

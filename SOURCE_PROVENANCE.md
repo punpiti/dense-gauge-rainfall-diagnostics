@@ -1,5 +1,21 @@
 # Source provenance
 
+## Pair-max primary: v1.1.0
+
+`primary/` contains the reviewed pair-max primary and computational controls.
+`primary/SOURCE_PROVENANCE.json` records retained source hashes and local
+import/data-default adaptations. Numerical functions are unchanged from the
+verified manuscript calculations. `primary/SHA256SUMS.json` identifies this
+release's calculation files and usage documentation. No restricted inputs,
+internal records or separate supplementary-code ZIP are distributed.
+
+The primary/control entrypoint was checked across all 157 retained windows;
+matching calculated indicators establishes implementation consistency, not
+independent meteorological validation. The requested 120-minute lead is fully
+retained in 155 windows; one retains 105 minutes and one none.
+
+## Historical fixed15 provenance
+
 The files under `code/` are byte-for-byte copies, at package build time, of
 the corresponding files in the authors' curated paper-processing source tree.
 

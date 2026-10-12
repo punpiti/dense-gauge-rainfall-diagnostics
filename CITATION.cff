@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the accompanying manuscript and this software release."
 title: "Dense-gauge rainfall diagnostics"
 type: software
-version: 1.0.0
-date-released: "2026-08-15"
+version: 1.1.0
+date-released: "2026-10-13"
 license: MIT
 authors:
   - family-names: Piamsa-nga
@@ -15,6 +15,6 @@ authors:
 repository-code: "https://github.com/punpiti/dense-gauge-rainfall-diagnostics"
 url: "https://punpiti.github.io/dense-gauge-rainfall-diagnostics/"
 abstract: >-
-  Focused Python source release and unrestricted synthetic demonstration for
-  the rainfall gridding, optical-flow, advection-residual, event-metric, and
-  final operational labeling stages for transport-relative rainfall diagnostics.
+  Pair-max rainfall-motion and residual indicators, fixed15/no-advection,
+  finite-fill, scaling-recovery and local-support controls, with unrestricted
+  synthetic software tests. The historical fixed15 interface is retained.

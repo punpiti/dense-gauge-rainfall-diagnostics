@@ -1,5 +1,9 @@
 # Input schemas
 
+For the current pair-max primary and controls, use
+[`primary/README.md`](primary/README.md#required-scientific-inputs).
+The schemas below describe the historical fixed15 single-event interface.
+
 ## Event-window station table
 
 `build_event_grid_xarray.py --cache` reads a Parquet table with at least:
