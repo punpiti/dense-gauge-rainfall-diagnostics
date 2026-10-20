@@ -1,6 +1,6 @@
 {
-  "README.md": "969adfd7dac20e4f589fd0fc39f8ecad1ac0b675120c74916842e040807e15a7",
-  "SOURCE_PROVENANCE.json": "96d3e4d5c304b4d5ec8bc33efdb456b0db114f45e2d9a0217e21d7e4e9ea1ba1",
+  "README.md": "3ac68294027c9f42a7a80cfdf825d22c15244790508fcc99cbfcb631101b81b1",
+  "SOURCE_PROVENANCE.json": "b9b2893523f0880bc763885ed8fa1ed74758ea3c9f02575ce9bbfee7c4454eaa",
   "analysis/audit_no_fill_event_linkage.py": "0b3686f221a0162748b398f64ea84447a7b991d3d75313486efa9ab60d97e0af",
   "analysis/density_motion_check.py": "f0bb69099848972cffa9cfe515dc2721413823a0338b54cfbadd1b77e9850d34",
   "analysis/flow_scaling_check.py": "12a2329ce0a09e4e70f3b8d13143b41f480497d3f85fe00056a6de0f6d6c083d",
@@ -11,7 +11,8 @@
   "processing/cluster_station_events_to_storms.py": "3a46078bb4fe9570bd13ba5f532166de824be51fe1bc02a6a39439a86fb2dbf7",
   "processing/compute_optical_flow_xarray.py": "93ff72af652ecea57840112aabd3b17c8e6dfc90017d1e0a9d15d8e7c138591c",
   "requirements.txt": "23338333e045021564c094a58074caf4bb4e9920a2d4dd40dab37d1a8fc92d82",
-  "run_primary.py": "02681c66b65320f16855ac89ea6ff4b38e381aaf4ddc9d414c84926d985d97e6",
+  "run_anchoring_control.py": "435536cbd2ecefbe58bfc7e3a84ec71ede1465efd21190a2851abc43cdf75cda",
+  "run_primary.py": "0457b7d706bce78ba2e84ecae2854d0fc727ca279ed0e12d1f6f972448207c32",
   "run_reconstruction_controls.py": "868fec12643606e42c83d1d9c70faabf00e2782c9822f1f571c7eb7e4bedf033",
   "test_archive_window_audit.py": "3454060e22aebbf7097ace671fb7218203c666c408ab27f8927b78f68d33c36d"
 }

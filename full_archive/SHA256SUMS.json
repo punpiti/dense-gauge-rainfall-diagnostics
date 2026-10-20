@@ -1,0 +1,9 @@
+{
+  "PORTABLE_PROVENANCE.json": "5319e089d8f7630b77897ab7af590cd62edb7b8152a6d072a3998ecf5df62601",
+  "README.md": "15aa34d89f760c229a2b59440f40a5561286e8a52e5eeba701c3a95fa377ea79",
+  "build_catalogue.py": "163b3acf316cc134ab3a4d4886c4383e85a6cc5a13d3d88f4b7d725e687a7a19",
+  "known_deformation.py": "7326af07c26141e36a251a4c929a768e9d7106f4bf72c1bc5cae45c0961e7514",
+  "reconstruction.py": "d5d0c8118872b4c471080557efcf656e25b68bba9f3f22bed428522cdcdd8dfb",
+  "run_catalogue.py": "644b3b2511b8cb74d7150b6a382ed151e0322c354f48c3da7aaed933cf89ec23",
+  "threshold_sensitivity.py": "ab5567623f1d10b4f9deadf0678b5f9929593de35d8b4be3ffea5bd3bc15966e"
+}

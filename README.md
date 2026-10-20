@@ -189,3 +189,11 @@ requires the BMA station observations and the authors' event-window definitions,
 which cannot be redistributed here. Consequently, the package supports code
 inspection and method execution but does not claim data-complete replication
 of the Bangkok analysis.
+
+## Complete-archive evaluation (v1.3.0)
+
+See [full_archive/README.md](full_archive/README.md) for rebuilding the cleaned
+archive, preserving all conversion chunks, and repeating the fixed-rule
+processing comparisons. New code also supplies threshold perturbations, an
+analytic inverse-map control and the original-sample anchoring ablation.
+Restricted observations and coordinates are not distributed.

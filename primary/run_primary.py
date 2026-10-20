@@ -21,7 +21,7 @@ spec=importlib.util.spec_from_file_location("grid",HERE/"processing/build_event_
 grid=importlib.util.module_from_spec(spec);spec.loader.exec_module(grid)
 
 
-def reconstruct(cache,stations,boundary,sigma_km=2.5):
+def reconstruct(cache,stations,boundary,sigma_km=2.5,anchor_stations=True):
     df=cache.copy();df["time"]=pd.to_datetime(df.time,errors="coerce")
     df=df.dropna(subset=["time","stationid"])
     df["stationid"]=grid.normalize_stationid_to_int(df.stationid)
@@ -32,7 +32,7 @@ def reconstruct(cache,stations,boundary,sigma_km=2.5):
     for t in sorted(df.time.unique().tolist()):
         dt=df.loc[df.time.eq(t),["stationid","rainfall"]]
         anchor=grid.aggregate_to_grid(dt,st,xe,ye)
-        r=grid.gaussian_smooth_grid_from_stations(dt,st,xe,ye,float(sigma_km)*1000.,3.,anchor,False)
+        r=grid.gaussian_smooth_grid_from_stations(dt,st,xe,ye,float(sigma_km)*1000.,3.,anchor if anchor_stations else None,False)
         fields.append(grid.apply_min_rain(r,.1,False))
     return np.stack(fields)
 

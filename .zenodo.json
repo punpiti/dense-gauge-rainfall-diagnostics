@@ -1,0 +1,16 @@
+{
+  "title": "Dense-gauge rainfall diagnostics",
+  "upload_type": "software",
+  "description": "Reproducible gauge-only rainfall-development diagnostics, optical-flow and reconstruction controls, and complete-archive event rebuilding. Restricted BMA observations and coordinates are not included.",
+  "creators": [
+    {"name": "Piamsa-nga, Punpiti", "affiliation": "Kasetsart University"},
+    {"name": "Phisanbut, Nalina", "affiliation": "Kasetsart University"},
+    {"name": "Piamsa-nga, Napaporn", "affiliation": "Kasetsart University"}
+  ],
+  "license": "MIT",
+  "keywords": ["rainfall", "rain gauge", "optical flow", "reconstruction sensitivity"],
+  "version": "1.3.0",
+  "related_identifiers": [
+    {"identifier": "https://github.com/punpiti/dense-gauge-rainfall-diagnostics/releases/tag/v1.3.0", "relation": "isIdenticalTo", "scheme": "url"}
+  ]
+}

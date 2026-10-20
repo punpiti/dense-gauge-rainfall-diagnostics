@@ -1,0 +1,22 @@
+{
+  "reconstruction.py": {
+    "source": "internal/analysis/reconstruction_cached_weights.py",
+    "source_sha256": "d15eaea46e6800e0b7e9d7341cf5243ce2f7af197242dc9bdccf09f864441e01",
+    "portable_sha256": "d5d0c8118872b4c471080557efcf656e25b68bba9f3f22bed428522cdcdd8dfb"
+  },
+  "build_catalogue.py": {
+    "source": "internal/analysis/rebuild_complete_archive.py",
+    "source_sha256": "0a2decbaf341480c0f4d56857ad6ee8113f6d761e5c0a1f327edeec39d5574cb",
+    "portable_sha256": "163b3acf316cc134ab3a4d4886c4383e85a6cc5a13d3d88f4b7d725e687a7a19"
+  },
+  "run_catalogue.py": {
+    "source": "internal/analysis/run_complete_catalogue.py",
+    "source_sha256": "3e48f54a59a5fce7fcdec8a4e90d3a501d072996e12952124d7bfb4e773ad78d",
+    "portable_sha256": "644b3b2511b8cb74d7150b6a382ed151e0322c354f48c3da7aaed933cf89ec23"
+  },
+  "known_deformation.py": {
+    "source": "internal/analysis/check_mapping_anchoring.py",
+    "source_sha256": "b9c73784e783c915f5787a5f1e53b001443b82350130195c7038ebd551b450aa",
+    "portable_sha256": "7326af07c26141e36a251a4c929a768e9d7106f4bf72c1bc5cae45c0961e7514"
+  }
+}

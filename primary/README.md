@@ -179,3 +179,11 @@ code, not BMA acquisition or automatic recovery of historical metadata. Figure
 layout scripts and internal prose/QA logs are intentionally excluded. Saved
 primary products, figures and review PDFs remain separate deliverables. No
 new observational or physical experiment is introduced by the synthetic demo.
+
+## v1.3.0 extension
+
+The separate `../full_archive/` workflow rebuilds and evaluates the complete
+cleaned archive with unchanged screens and rule. `run_anchoring_control.py`
+provides the requested fixed-window anchoring ablation. The default primary
+reconstruction is unchanged; `anchor_stations=False` explicitly disables its
+station-cell overwrite for the control.

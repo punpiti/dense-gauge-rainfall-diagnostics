@@ -52,8 +52,8 @@
     "packaged_file": "run_primary.py",
     "original_source": "internal/code_release_20261020/code/run_primary.py",
     "source_sha256": "02681c66b65320f16855ac89ea6ff4b38e381aaf4ddc9d414c84926d985d97e6",
-    "packaged_sha256": "02681c66b65320f16855ac89ea6ff4b38e381aaf4ddc9d414c84926d985d97e6",
-    "adaptation": "Optional scale argument retains primary defaults; new source accepts explicit input paths. No observations bundled."
+    "packaged_sha256": "0457b7d706bce78ba2e84ecae2854d0fc727ca279ed0e12d1f6f972448207c32",
+    "adaptation": "v1.3.0 adds optional anchor_stations=True; the unchanged default reproduces baseline fields exactly."
   },
   {
     "packaged_file": "run_reconstruction_controls.py",
@@ -75,5 +75,11 @@
     "source_sha256": "3454060e22aebbf7097ace671fb7218203c666c408ab27f8927b78f68d33c36d",
     "packaged_sha256": "3454060e22aebbf7097ace671fb7218203c666c408ab27f8927b78f68d33c36d",
     "adaptation": "Identical validated source, explicit paths only; no restricted inputs bundled."
+  },
+  {
+    "packaged_file": "run_anchoring_control.py",
+    "original_source": "Requested portable fixed-window control",
+    "packaged_sha256": "435536cbd2ecefbe58bfc7e3a84ec71ede1465efd21190a2851abc43cdf75cda",
+    "adaptation": "Explicit restricted-input paths; baseline must reproduce exactly before ablation."
   }
 ]
