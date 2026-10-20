@@ -1,13 +1,13 @@
 # Dense-gauge rainfall diagnostics
 
 [![Demo guide](https://img.shields.io/badge/demo-GitHub%20Pages-006eb7)](https://punpiti.github.io/dense-gauge-rainfall-diagnostics/)
-[![Release](https://img.shields.io/badge/release-v1.1.0-19734a)](https://github.com/punpiti/dense-gauge-rainfall-diagnostics/releases/tag/v1.1.0)
+[![Release](https://img.shields.io/badge/release-v1.2.0-19734a)](https://github.com/punpiti/dense-gauge-rainfall-diagnostics/releases/tag/v1.2.0)
 [![License: MIT](https://img.shields.io/badge/license-MIT-df930b.svg)](LICENSE)
 
 Transport-relative analysis of rainfall development from dense rain-gauge
 networks, with reproducible processing scripts and a synthetic demonstration.
 
-## Current manuscript: pair-max, v1.1.0
+## Current manuscript: pair-max, v1.2.0
 
 Use [`primary/run_primary.py`](primary/run_primary.py) for the revised
 Atmospheric Research manuscript. It calculates pair-max indicators and labels,
@@ -17,7 +17,7 @@ and 121 other windows in the retained 157-storm analysis. These are operational
 diagnostic groups, not independently validated convective labels.
 
 ```bash
-git clone --branch v1.1.0 https://github.com/punpiti/dense-gauge-rainfall-diagnostics.git
+git clone --branch v1.2.0 https://github.com/punpiti/dense-gauge-rainfall-diagnostics.git
 cd dense-gauge-rainfall-diagnostics
 python -m pip install -r primary/requirements.txt
 python primary/demo.py
@@ -32,10 +32,24 @@ All indicators use complete retained analysis windows, including available
 pre-storm lead-ins; linked storm duration is separate.
 
 This repository is the sole public code location; there is no separate code
-supplement. The new directory contains calculation code and essential usage
+supplement. The primary directory contains calculation code and essential usage
 documentation only: no manuscript, restricted inputs, figure/layout scripts,
-internal review records, or experimental prototypes. Release v1.0.0 is kept
-unchanged as historical fixed15 provenance.
+internal review records, or experimental prototypes. Releases v1.0.0 and v1.1.0 are retained unchanged as historical provenance.
+
+## Reconstruction and archive-window controls
+
+Release v1.2.0 adds `primary/run_reconstruction_controls.py` for complete
+bilinear donor support and five reconstruction scales at fixed windows. The
+primary 36/121 grouping and rule remain unchanged. Supported donors give
+31 high-residual windows; scales of 1/1.5/2.5/3.5/5 km give 2/11/36/63/92.
+
+`primary/audit_archive_windows.py` compares local contexts with the complete
+cleaned archive, reconstructing station events and storm components with the
+original gap rules. One retained storm start is cut and another window has
+an incomplete lead-in. Contextual summaries exclude both (155 windows,
+36/119 groups); the high-residual scale/donor counts remain unchanged.
+No annual catalogue is rebuilt. Restricted inputs and extracted rows are not
+included. See the primary README for schemas, commands and synthetic tests.
 
 ## Related research and provenance
 

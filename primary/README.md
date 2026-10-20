@@ -1,4 +1,4 @@
-# Pair-max primary and computational controls — v1.1.0
+# Pair-max primary and computational controls — v1.2.0
 
 Calculation code for the revised Atmospheric Research manuscript, published
 in the same GitHub repository as the historical fixed15 v1.0.0 implementation.
@@ -8,6 +8,11 @@ meteorological validation or author scientific approval.
 
 ## What is supplied
 
+- `run_reconstruction_controls.py`: all-window donor eligibility and five-scale
+  reconstruction sensitivities; unchanged primary rule.
+- `audit_archive_windows.py`: complete-archive local event-boundary and station-
+  availability checks, using the retained station and cross-station gap rules.
+- `test_archive_window_audit.py`: synthetic cut-event/intact-event integration test.
 - `run_primary.py`: pair-max primary indicators, fixed15/no-advection comparisons,
   and optional complete finite-M no-fill reconstruction at fixed windows.
 - `analysis/flow_scaling_check.py`: identical numerical pair scaling, mask,
@@ -80,6 +85,62 @@ python analysis/audit_no_fill_event_linkage.py \
   --cluster-script processing/cluster_station_events_to_storms.py \
   --out-dir linkage_results --workers 8
 ```
+
+## Donor support, reconstruction scale and window integrity
+
+```bash
+python run_reconstruction_controls.py --self-test
+python test_archive_window_audit.py
+python run_reconstruction_controls.py --products /path/to/products \
+  --data-root /path/to/data --stations /path/to/retained_coordinates.csv \
+  --boundary /path/to/bangkok_boundary.geojson --workers 8 \
+  --output reconstruction_controls
+
+python audit_archive_windows.py --archive /path/to/complete_cleaned.csv.bz2 \
+  --windows /path/to/primary_windows.csv --data-root /path/to/data \
+  --partitions /path/to/retained_partition_extents.csv \
+  --members /path/to/retained_storm_members.parquet \
+  --cluster-script processing/cluster_station_events_to_storms.py \
+  --buffer-hours 24 --output /path/to/local_integrity_audit
+```
+
+The new audit requires:
+
+- A complete cleaned CSV (optionally bzip2) with `time`, `stationid`, `rainfall`,
+  `rainfall_flag`, ordered by time. The retained study index has 131 stations
+  at every 15-minute timestamp, including one unlocated station for linkage.
+- Primary window CSV with `storm_id`, `storm_start`, `storm_end`, `cache_path`,
+  `convective_rule_label` (legacy convective/non_convective values).
+- Retained station/year extent CSV: `stationid` (SNNN), `year`, `first_time`,
+  `last_time`. These extents must describe the actual retained product.
+- Membership Parquet: `storm_id`, `stationid`, `event_start`, `event_end`.
+- The same event caches and retained cluster implementation as the primary run.
+
+The CSV is scanned sequentially; only the union of cache intervals with a
+24-hour buffer on each side is retained. Components touching the context
+boundary fail closure and require a larger buffer. This does not rebuild an
+annual catalogue. Existing retained cache values are compared separately from
+absent archive rows; timestamp continuity cannot establish station availability.
+The local `restricted/complete_context.parquet` output contains observations
+and must remain subject to BMA permissions. Do not publish it. `--analyse-only`
+reuses a verified extraction when the source size/mtime and buffer match.
+
+At fixed 2.5-km fields, the donor control retains only later finite observations
+whose nonzero bilinear source donors are finite and in-grid. Finite zeros remain
+supported. Flow and residual amplitudes are unchanged. The scale control uses
+1/1.5/2.5/3.5/5 km with the same three-sigma cutoff, anchoring, coordinates,
+windows and thresholds; both amplitudes and support footprint therefore vary.
+Its 2.5-km baseline must reproduce archived grids exactly. The optional
+`run_primary.reconstruct(..., sigma_km=2.5)` argument preserves existing defaults.
+
+The study archive audit reproduces all retained memberships/boundaries but
+finds a cut start for STORM_000216 (90 to 450 minutes in complete context) and
+an incomplete requested lead for STORM_000499. Both remain explicitly flagged
+in the original fixed-window comparisons; contextual duration/intensity/hour
+summaries exclude them. The 155-window subset retains the same high-residual
+scale counts and supported-donor count. These checks establish processing
+integrity within the checked contexts, not year-round representativeness,
+instrument calibration or independent convective-classification skill.
 
 ## Numerical decisions
 

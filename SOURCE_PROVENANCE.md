@@ -1,5 +1,16 @@
 # Source provenance
 
+## Added controls: v1.2.0
+
+The donor-support and all-window scale entrypoint reproduces all four reviewed
+indicators and labels across 157 fixed windows (942 output rows). The local
+archive-window audit uses the complete cleaned source only in buffered contexts;
+retained boundary/membership reconstruction precedes complete-archive comparison.
+A synthetic integration test detects a cut event and preserves an intact event.
+No observations, coordinates, extracted contexts or internal review logs are
+included. Version v1.1.0 is unchanged. AI-assisted implementation/execution is
+reported separately from author judgment and independent physical validation.
+
 ## Pair-max primary: v1.1.0
 
 `primary/` contains the reviewed pair-max primary and computational controls.

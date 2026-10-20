@@ -47,5 +47,33 @@
     "source_sha256": "0b3686f221a0162748b398f64ea84447a7b991d3d75313486efa9ab60d97e0af",
     "packaged_sha256": "0b3686f221a0162748b398f64ea84447a7b991d3d75313486efa9ab60d97e0af",
     "adaptation": "local import/data defaults only; numerical functions unchanged"
+  },
+  {
+    "packaged_file": "run_primary.py",
+    "original_source": "internal/code_release_20261020/code/run_primary.py",
+    "source_sha256": "02681c66b65320f16855ac89ea6ff4b38e381aaf4ddc9d414c84926d985d97e6",
+    "packaged_sha256": "02681c66b65320f16855ac89ea6ff4b38e381aaf4ddc9d414c84926d985d97e6",
+    "adaptation": "Optional scale argument retains primary defaults; new source accepts explicit input paths. No observations bundled."
+  },
+  {
+    "packaged_file": "run_reconstruction_controls.py",
+    "original_source": "internal/code_release_20261020/code/run_reconstruction_controls.py",
+    "source_sha256": "868fec12643606e42c83d1d9c70faabf00e2782c9822f1f571c7eb7e4bedf033",
+    "packaged_sha256": "868fec12643606e42c83d1d9c70faabf00e2782c9822f1f571c7eb7e4bedf033",
+    "adaptation": "Identical validated source, explicit paths only; no restricted inputs bundled."
+  },
+  {
+    "packaged_file": "audit_archive_windows.py",
+    "original_source": "internal/analysis/audit_complete_archive_windows.py",
+    "source_sha256": "fe30ceac9334a89d0a2de3f656ba941dc2fa478932a15759f14bb24a09378beb",
+    "packaged_sha256": "fe30ceac9334a89d0a2de3f656ba941dc2fa478932a15759f14bb24a09378beb",
+    "adaptation": "Identical validated source, explicit paths only; no restricted inputs bundled."
+  },
+  {
+    "packaged_file": "test_archive_window_audit.py",
+    "original_source": "internal/code_release_20261020/code/test_archive_window_audit.py",
+    "source_sha256": "3454060e22aebbf7097ace671fb7218203c666c408ab27f8927b78f68d33c36d",
+    "packaged_sha256": "3454060e22aebbf7097ace671fb7218203c666c408ab27f8927b78f68d33c36d",
+    "adaptation": "Identical validated source, explicit paths only; no restricted inputs bundled."
   }
 ]
