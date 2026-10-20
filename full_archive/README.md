@@ -66,3 +66,62 @@ This checks every baseline field exactly before removing station-cell
 anchoring. The known-deformation experiment uses analytically prescribed affine
 motion and exact inverse coordinates; it does not estimate atmospheric motion
 or establish the real-data error of the approximate inverse warp.
+
+## Fixed support and full-cohort summaries (v1.4.0)
+
+The bandwidth experiment now separates the original 3-sigma truncation policy
+from a fixed 7.5-km radius. Run on the completed year-round evaluation:
+
+```sh
+python full_archive/run_fixed_footprint.py --input /work/full-evaluation \
+  --output /work/fixed-support --stations /data/reconstruction-stations.csv \
+  --boundary /data/boundary.geojson --workers 8
+python full_archive/full_context.py --input /work/full-evaluation \
+  --output /work/context --stations /data/reconstruction-stations.csv \
+  --boundary /data/boundary.geojson \
+  --historical-window-table /data/original-pair-max-windows.csv --workers 4
+python full_archive/cohort_grouping.py --input /work/full-evaluation/results.csv \
+  --output /work/grouping
+python full_archive/summarize_catalogue.py --input /work/full-evaluation \
+  --output /work/full-evaluation/summary.json
+python full_archive/plot_controls.py \
+  --rebuild-summary /work/full-evaluation/summary.json \
+  --fixed-summary /work/fixed-support/summary.csv --output /work/control-plot
+```
+
+The fixed-support calculation requires the `results.csv`, `scale_results.csv`
+and restricted caches from `run_catalogue.py`. It enforces identical cell-time
+finite support across all five bandwidths and reproduces the 2.5-km primary
+metrics. The new cutoff argument defaults to the previous 3-sigma policy, so
+the primary calculations and rule are unchanged. Use a fresh checkpoint folder
+for a different configuration. Fixed finite support does not equalize effective
+gauge weights, observational information, or uncertainty.
+
+`full_context.py` reports class statistics, hourly counts/percentages and knees
+on the entire completed cohort. Intensity is the maximum gauge accumulation
+inside linked start/end, excluding the lead-in; residual indicators retain the
+original lead-inclusive windows. The historical table requires `storm_start`
+and `convective_rule_label` (`convective` / `non_convective`), and is used only
+for descriptive monthly-composition standardization. The decomposition is
+arithmetic, not a causal or physical-classification analysis.
+
+In the manuscript evaluation, fixed 7.5-km high-residual counts were
+634/706/901/1027/1061, compared with 73/332/901/1397/1788 for 3-sigma truncation.
+Portable source reproduces 80 control rows in eight windows and all 3,304
+context rows, class statistics, distributions and monthly standardization.
+An independent original frame-loop implementation matched 75 sampled fields;
+all 157 original primary fields still reproduce bit-for-bit. Known translations,
+local density and temporal-fill reconstruction retain the historical benchmark;
+they have not been extended to every rebuilt window. No independent real-motion,
+physical storm-type or radar validation is added by these checks.
+
+The independent original frame-loop check is also available:
+
+```sh
+python full_archive/verify_fixed_footprint.py --input /work/full-evaluation \
+  --output /work/independent-check --stations /data/reconstruction-stations.csv \
+  --boundary /data/boundary.geojson
+```
+
+This checks 75 selected fields across five windows and five bandwidths; it does
+not label that sample check as a complete field-by-field external validation.

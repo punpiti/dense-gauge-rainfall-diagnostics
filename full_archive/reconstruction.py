@@ -30,10 +30,11 @@ def geometry():
     return st,xe,ye
 
 
-@lru_cache(maxsize=5)
-def kernels(sigma):
+@lru_cache(maxsize=32)
+def kernels(sigma,cutoff_km=None):
     st,xe,ye=geometry();xc=(xe[:-1]+xe[1:])/2;yc=(ye[:-1]+ye[1:])/2
-    radius=3*float(sigma)*1000;cutoff2=radius*radius;two_sigma2=2*(float(sigma)*1000)**2
+    radius=(3*float(sigma) if cutoff_km is None else float(cutoff_km))*1000
+    cutoff2=radius*radius;two_sigma2=2*(float(sigma)*1000)**2
     result={}
     for row in st.itertuples(index=False):
         x0,y0=row.x,row.y
@@ -47,7 +48,7 @@ def kernels(sigma):
     return result
 
 
-def reconstruct(cache,sigma=2.5,anchor=True):
+def reconstruct(cache,sigma=2.5,anchor=True,cutoff_km=None):
     df=cache.copy();df['time']=pd.to_datetime(df.time)
     df['stationid']=grid.normalize_stationid_to_int(df.stationid)
     df=df.dropna(subset=['time','stationid']);df['rainfall']=pd.to_numeric(df.rainfall,errors='coerce')
@@ -56,7 +57,7 @@ def reconstruct(cache,sigma=2.5,anchor=True):
     nt,ny,nx=len(times),len(ye)-1,len(xe)-1
     observations=df.pivot(index='time',columns='stationid',values='rainfall').reindex(index=times)
     num=np.zeros((nt,ny,nx),dtype=np.float64);den=np.zeros_like(num)
-    kernel=kernels(float(sigma))
+    kernel=kernels(float(sigma),cutoff_km)
     for station in station_order:
         if station not in kernel:continue
         y0,y1,x0,x1,w=kernel[station]

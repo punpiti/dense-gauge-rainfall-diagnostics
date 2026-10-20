@@ -1,8 +1,8 @@
 {
   "reconstruction.py": {
     "source": "internal/analysis/reconstruction_cached_weights.py",
-    "source_sha256": "d15eaea46e6800e0b7e9d7341cf5243ce2f7af197242dc9bdccf09f864441e01",
-    "portable_sha256": "d5d0c8118872b4c471080557efcf656e25b68bba9f3f22bed428522cdcdd8dfb"
+    "source_sha256": "9d321575318e3587eeaf1c00489ab43d9096dcfef6840dcfd7a23eabc9e2578f",
+    "portable_sha256": "1f9e05ea16e1a6141f153efcea07bdddd0840bb105f1f07df114d690c3c03a09"
   },
   "build_catalogue.py": {
     "source": "internal/analysis/rebuild_complete_archive.py",
@@ -18,5 +18,35 @@
     "source": "internal/analysis/check_mapping_anchoring.py",
     "source_sha256": "b9c73784e783c915f5787a5f1e53b001443b82350130195c7038ebd551b450aa",
     "portable_sha256": "7326af07c26141e36a251a4c929a768e9d7106f4bf72c1bc5cae45c0961e7514"
+  },
+  "run_fixed_footprint.py": {
+    "source": "internal/analysis/review_20261020_fixed_footprint.py",
+    "source_sha256": "82d38e31e00c4818fe26453f3181206eb18b72c8ca3f978bdc8c0ad3c878a9f6",
+    "portable_sha256": "d918c745406076210f752f2c14db62f15d256bbc76725988ed2fe24b2e8383cf"
+  },
+  "full_context.py": {
+    "source": "internal/analysis/review_20261020_full_context.py",
+    "source_sha256": "6bdcf24ac645702aeb2230faee883b43aab10f9685aad3a98932093f6715423a",
+    "portable_sha256": "51aea5ac77ae8fb8b2d02dd4e1b3129c6c8171794336e153bfa77c3685a2c1ba"
+  },
+  "cohort_grouping.py": {
+    "source": "internal/analysis/review_20261020_cohort_grouping.py",
+    "source_sha256": "575fd7bfbc9b549dc254c6e3fd59363740957bbdfb473c31605401edc8411be9",
+    "portable_sha256": "56c4f2fe1036b9388430d8501a80d971895f9044ce1841095cf16cd191eb548f"
+  },
+  "plot_controls.py": {
+    "source": "internal/analysis/plot_complete_rebuild.py",
+    "source_sha256": "3ab729df254cd9e196c017cb8fdc7e8963ae8e13b2ba4773fd0de74141c0d5b4",
+    "portable_sha256": "963a3dbac33f19d693b1ce0b42ba6fc52147a2527bd6b2b03f134c1ad4db5e1c"
+  },
+  "verify_fixed_footprint.py": {
+    "source": "internal/analysis/verify_fixed_footprint.py",
+    "source_sha256": "a1c2e2240e08a8a967a4e647a8010fc28a1adaa9d659777cf987de56c96f97db",
+    "portable_sha256": "e91d5525727885453a38e5fc9cd8761226f218c8eb9c1766e2009eb0551fdd0e"
+  },
+  "summarize_catalogue.py": {
+    "source": "internal/analysis/summarize_complete_rebuild.py",
+    "source_sha256": "3b97ad6697d73b4cba03e0308c083e138162a6d32e2e3539c89db983f4bbdd54",
+    "portable_sha256": "932b75937e43d2a6df44374f8e4b12ba88270911c38223d25a05087afa24c8fe"
   }
 }

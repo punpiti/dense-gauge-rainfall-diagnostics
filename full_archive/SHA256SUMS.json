@@ -1,9 +1,15 @@
 {
-  "PORTABLE_PROVENANCE.json": "5319e089d8f7630b77897ab7af590cd62edb7b8152a6d072a3998ecf5df62601",
-  "README.md": "15aa34d89f760c229a2b59440f40a5561286e8a52e5eeba701c3a95fa377ea79",
+  "PORTABLE_PROVENANCE.json": "2168d9918095b42c97d919574a0b3c959a27bdccb50c8456e7254ae473508f75",
+  "README.md": "290c149131bc8906eb7e5a8e29c50050d8ad77f05c18329b2f152c26a567e4e5",
   "build_catalogue.py": "163b3acf316cc134ab3a4d4886c4383e85a6cc5a13d3d88f4b7d725e687a7a19",
+  "cohort_grouping.py": "56c4f2fe1036b9388430d8501a80d971895f9044ce1841095cf16cd191eb548f",
+  "full_context.py": "51aea5ac77ae8fb8b2d02dd4e1b3129c6c8171794336e153bfa77c3685a2c1ba",
   "known_deformation.py": "7326af07c26141e36a251a4c929a768e9d7106f4bf72c1bc5cae45c0961e7514",
-  "reconstruction.py": "d5d0c8118872b4c471080557efcf656e25b68bba9f3f22bed428522cdcdd8dfb",
+  "plot_controls.py": "963a3dbac33f19d693b1ce0b42ba6fc52147a2527bd6b2b03f134c1ad4db5e1c",
+  "reconstruction.py": "1f9e05ea16e1a6141f153efcea07bdddd0840bb105f1f07df114d690c3c03a09",
   "run_catalogue.py": "644b3b2511b8cb74d7150b6a382ed151e0322c354f48c3da7aaed933cf89ec23",
-  "threshold_sensitivity.py": "ab5567623f1d10b4f9deadf0678b5f9929593de35d8b4be3ffea5bd3bc15966e"
+  "run_fixed_footprint.py": "d918c745406076210f752f2c14db62f15d256bbc76725988ed2fe24b2e8383cf",
+  "summarize_catalogue.py": "932b75937e43d2a6df44374f8e4b12ba88270911c38223d25a05087afa24c8fe",
+  "threshold_sensitivity.py": "ab5567623f1d10b4f9deadf0678b5f9929593de35d8b4be3ffea5bd3bc15966e",
+  "verify_fixed_footprint.py": "e91d5525727885453a38e5fc9cd8761226f218c8eb9c1766e2009eb0551fdd0e"
 }

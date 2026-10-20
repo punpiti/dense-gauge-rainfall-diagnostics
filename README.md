@@ -197,3 +197,11 @@ archive, preserving all conversion chunks, and repeating the fixed-rule
 processing comparisons. New code also supplies threshold perturbations, an
 analytic inverse-map control and the original-sample anchoring ablation.
 Restricted observations and coordinates are not distributed.
+
+## Fixed support and cohort consistency (v1.4.0)
+
+The full-archive workflow adds fixed 7.5-km truncation across all bandwidths,
+finite-support counts, full-cohort contextual/hourly statistics and indicator
+distributions, and descriptive month-composition standardization. See
+[full_archive/README.md](full_archive/README.md) for explicit input paths.
+The original primary calculation and Boolean rule remain unchanged.
